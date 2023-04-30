@@ -20,5 +20,5 @@ from web_olitel.views import hello_geeks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('geek/', hello_geeks)
+    path('geek/', hello_geeks),
 ]
