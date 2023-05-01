@@ -15,3 +15,4 @@ class WidgetForm_ejemplo(forms.Form):
     description = forms.CharField(widget = forms.CheckboxInput)
     views = forms.IntegerField(widget = forms.TextInput)
     available = forms.BooleanField(widget = forms.Textarea)
+    date = forms.DateField(widget = forms.SelectDateWidget)
