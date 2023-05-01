@@ -1,19 +1,48 @@
-<div>
+
+<style>
+  form  { display: table;}
+  p     { display: table-row;  }
+  label { display: table-cell; }
+  input { display: table-cell; }
+</style>
+
+
+<div style="text-align: right;">
     <form action="" method="post">
       {% csrf_token %}
-      <div>
-        {{ form.field1.label_tag }}
-        {{ form.field1 }}
-      </div>
-      <div>
-        {{ form.field2.label_tag }}
-        {{ form.field2 }}
-      </div>
-      <div>
-        {{ form.field3.label_tag }}
-        {{ form.field3 }}
-      </div>
+      <p>
+        {{ form.first_name.label_tag }}
+        {{ form.first_name }}
+      </p>
+      <br>
+      <p>
+        {{ form.last_name.label_tag }}
+        {{ form.last_name }}
+      </p>
+      <br>
+      <p>
+        {{ form.roll_number.label_tag }}
+        {{ form.roll_number }}
+      </p>
+      <p>
+      <label>
+      </label>
+      <label style="text-align: center;">
+        {{ form.roll_number.help_text }}
+      </label>
+      </p>
+      <p>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+      </p>
+      <br>
 
+      <p>
+      <label>
+      </label>
+      <label style="text-align: center;">
       <input type="submit" value="Submit">
+      </label>
+      </p>
     </form>
-  </div>
+</div>
