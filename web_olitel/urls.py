@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from web_olitel.views import hello_geeks
+from django.urls import include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('geek/', hello_geeks),
+    path('', include("app_olitel.urls")),
 ]
