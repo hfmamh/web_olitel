@@ -16,3 +16,6 @@ def formulario_nombre(request):
     context ={}
     context['form']= InputForm_ejemplo()
     return render(request, "home_2.html", context)
+
+def formulario_3(request):
+     return render(request, "form_3.html")
