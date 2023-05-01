@@ -16,3 +16,7 @@ def formulario_nombre(request):
 def formulario_3(request):
     print(request.GET) 
     return render(request, "form_GET.html")
+
+def formulario_4(request):
+    print(request.POST) 
+    return render(request, "form_POST.html")
