@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_olitel',
+    #'app_olitel',
+    'app_olitel.apps.AppOlitelConfig', #https://docs.djangoproject.com/en/4.2/intro/tutorial02/
 ]
 
 MIDDLEWARE = [
