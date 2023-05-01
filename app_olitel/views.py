@@ -15,4 +15,4 @@ from .forms import InputForm
 def home_view(request):
     context ={}
     context['form']= InputForm()
-    return render(request, "home.html", context)
+    return render(request, "home_2.html", context)

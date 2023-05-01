@@ -1,0 +1,19 @@
+<div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div>
+        {{ form.field1.label_tag }}
+        {{ form.field1 }}
+      </div>
+      <div>
+        {{ form.field2.label_tag }}
+        {{ form.field2 }}
+      </div>
+      <div>
+        {{ form.field3.label_tag }}
+        {{ form.field3 }}
+      </div>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
