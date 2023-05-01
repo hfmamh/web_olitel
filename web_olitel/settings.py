@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app_olitel.urls'
+ROOT_URLCONF = 'web_olitel.urls'
 
 TEMPLATES = [
     {
