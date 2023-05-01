@@ -12,7 +12,7 @@ def index(request):
 from .forms import InputForm
  
 # Create your views here.
-def home_view(request):
+def formulario_nombre(request):
     context ={}
     context['form']= InputForm()
     return render(request, "home_2.html", context)
