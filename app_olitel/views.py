@@ -20,3 +20,10 @@ def formulario_3(request):
 def formulario_4(request):
     print(request.POST) 
     return render(request, "form_POST.html")
+
+from .forms import WidgetForm_ejemplo
+def form_widgets(request):
+    context = {}
+    form = WidgetForm_ejemplo(request.POST or None)
+    context['form'] = form
+    return render(request, "home.html", context)

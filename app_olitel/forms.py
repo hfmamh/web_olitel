@@ -9,3 +9,9 @@ class InputForm_ejemplo(forms.Form):
                      help_text = "Enter 6 digit roll number"
                      )
     password = forms.CharField(widget = forms.PasswordInput())
+
+class WidgetForm_ejemplo(forms.Form):
+    title = forms.CharField()
+    description = forms.CharField()
+    views = forms.IntegerField()
+    available = forms.BooleanField()
