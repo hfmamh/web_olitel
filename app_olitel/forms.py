@@ -16,3 +16,10 @@ class WidgetForm_ejemplo(forms.Form):
     views = forms.IntegerField(widget = forms.TextInput)
     available = forms.BooleanField(widget = forms.Textarea)
     date = forms.DateField(widget = forms.SelectDateWidget)
+
+from .models import modelo_1
+class form_model(forms.ModelForm):
+    # specify the name of model to use
+    class Meta:
+        model = modelo_1
+        fields = "__all__"

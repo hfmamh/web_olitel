@@ -27,3 +27,17 @@ def form_widgets(request):
     form = WidgetForm_ejemplo(request.POST or None)
     context['form'] = form
     return render(request, "home.html", context)
+
+from .forms import form_model
+def form_modelo(request):
+    context ={}
+ 
+    # create object of form
+    form = form_model(request.POST or None, request.FILES or None)
+     
+    # check if form data is valid
+    if form.is_valid():
+        # save the form data to model
+        form.save()
+    context['form']= form
+    return render(request, "home.html", context)
