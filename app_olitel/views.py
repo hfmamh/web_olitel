@@ -14,4 +14,5 @@ def formulario_nombre(request):
     return render(request, "home_2.html", context)
 
 def formulario_3(request):
-     return render(request, "form_3.html")
+    print(request.GET) 
+    return render(request, "form_3.html")
