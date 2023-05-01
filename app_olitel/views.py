@@ -15,4 +15,4 @@ def formulario_nombre(request):
 
 def formulario_3(request):
     print(request.GET) 
-    return render(request, "form_3.html")
+    return render(request, "form_GET.html")
