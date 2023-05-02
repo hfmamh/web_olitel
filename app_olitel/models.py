@@ -16,6 +16,6 @@ class modelo_1(models.Model):
     
 
 class productos(models.Model):
-    id_producto = models.IntegerField(auto_created=True)
+    id_producto = models.IntegerField(null=True)
     producto = models.CharField(max_length=200)
     precio = models.FloatField(null=True)
