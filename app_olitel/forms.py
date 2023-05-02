@@ -23,3 +23,10 @@ class form_model(forms.ModelForm):
     class Meta:
         model = modelo_1
         fields = "__all__"
+
+from .models import productos
+class form_producto(forms.ModelForm):
+    class Meta:
+        model = productos
+        fields = "__all__"
+

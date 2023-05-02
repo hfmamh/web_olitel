@@ -41,3 +41,12 @@ def form_modelo(request):
         form.save()
     context['form']= form
     return render(request, "home.html", context)
+
+from .forms import form_producto
+def crear_producto(request):
+    context ={}
+    form = form_producto(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+    context['form']= form
+    return render(request, "home.html", context)

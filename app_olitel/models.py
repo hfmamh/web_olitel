@@ -13,3 +13,9 @@ class modelo_1(models.Model):
         # with their title name
     def __str__(self):
         return self.title
+    
+
+class productos(models.Model):
+    id_producto = models.IntegerField(auto_created=True)
+    producto = models.CharField(max_length=200)
+    precio = models.FloatField(null=True)
