@@ -55,7 +55,7 @@ def crear_producto(request):
 from django.forms import formset_factory
 def formset_vista(request):
     context={}
-    app_formset=formset_factory(WidgetForm_ejemplo)
+    app_formset=formset_factory(WidgetForm_ejemplo, extra=5)
     formset=app_formset()
     context['formset']= formset
     return render(request, "home_formset.html", context)
