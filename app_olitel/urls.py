@@ -11,4 +11,5 @@ urlpatterns=[
   path('form_widgets',views.form_widgets),
   path('form_modelo',views.form_modelo),
   path('crear_producto',views.crear_producto),
+  path('formset_vista',views.formset_vista),
 ]
