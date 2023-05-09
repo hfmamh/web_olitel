@@ -1,0 +1,72 @@
+{% load static %}
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static "vendors/mdi/css/materialdesignicons.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/flag-icon-css/css/flag-icon.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/ti-icons/css/themify-icons.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/typicons/typicons.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/css/vendor.bundle.base.css" %}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{% static "vendors/select2/select2.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/select2-bootstrap-theme/select2-bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/icheck/all.css" %}">
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static "css/shared/style.css" %}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static "css/demo_1/style.css" %}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{% static "images/favicon.png" %}" />
+</head>
+<body>
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Codigo</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+        <th>Unidad</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td>{{ item.producto }}</td>
+        <td>{{ item.codigo }}</td>
+        <td>{{ item.categoria }}</td>
+        <td>{{ item.precio }}</td>
+        <td>{{ item.unidad }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static "vendors/js/vendor.bundle.base.js" %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{% static "vendors/select2/select2.min.js" %}"></script>
+    <script src="{% static "vendors/typeahead.js/typeahead.bundle.min.js" %}"></script>
+    <script src="{% static "vendors/icheck/icheck.min.js" %}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static "js/shared/off-canvas.js" %}"></script>
+    <script src="{% static "js/shared/hoverable-collapse.js" %}"></script>
+    <script src="{% static "js/shared/misc.js" %}"></script>
+    <script src="{% static "js/shared/settings.js" %}"></script>
+    <script src="{% static "js/shared/todolist.js" %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{% static "js/shared/file-upload.js" %}"></script>
+    <script src="{% static "js/shared/iCheck.js" %}"></script>
+    <script src="{% static "js/shared/typeahead.js" %}"></script>
+    <script src="{% static "js/shared/select2.js" %}"></script>
+    <!-- End custom js for this page -->
+
+</body>

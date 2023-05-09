@@ -51,6 +51,13 @@ def crear_producto(request):
     context['form']= form
     return render(request, "form_star.html", context)
 
+from .models import productos
+
+def vista_tabla(request):
+    #context ={}
+    query_results = productos.objects.all()
+    #context['tabla']=query_results
+    return render(request, "tabla.html", locals())
 
 from django.forms import formset_factory
 def formset_vista(request):
