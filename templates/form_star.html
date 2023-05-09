@@ -38,10 +38,23 @@
     <div class="card-body">
       <h4 class="card-title">Default form</h4>
       <p class="card-description"> Basic form layout </p>
-      <form class="forms-sample">
+      <form action = "" method = "post">
         {% csrf_token %}
-        {{form }}
-        <button type="submit" class="btn btn-success mr-2">Submit</button>
+        <!--{{form }} -->
+
+        {% for field in form  %}
+        <!-- <div class="col-sm-6">
+          <b>{{ field.label_tag }}</b> - {{ field }} 
+        </div> -->
+        <div class="form-group">
+          {{ field.label_tag }}
+          <br>
+          {{ field }}
+        </div>
+        
+        {% endfor %}
+
+        <input type="submit" class="btn btn-success mr-2" value="Submit">
         <button class="btn btn-light">Cancel</button>
       </form>
     </div>
