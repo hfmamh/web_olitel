@@ -16,6 +16,8 @@ class modelo_1(models.Model):
     
 
 class productos(models.Model):
-    id_producto = models.IntegerField(null=True)
     producto = models.CharField(max_length=200)
+    codigo = models.IntegerField(null=True)
+    categoria = models.CharField(max_length=50,null=True)
     precio = models.FloatField(null=True)
+    unidad =models.CharField(max_length=10,null=True)
