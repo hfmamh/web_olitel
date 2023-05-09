@@ -49,7 +49,7 @@ def crear_producto(request):
     if form.is_valid():
         form.save()
     context['form']= form
-    return render(request, "home.html", context)
+    return render(request, "form_star.html", context)
 
 
 from django.forms import formset_factory
