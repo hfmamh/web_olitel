@@ -27,7 +27,16 @@
     <link rel="shortcut icon" href="{% static "images/favicon.png" %}" />
 </head>
 <body>
-<table>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Basic Table</h4>
+            <p class="card-description"> Add class <code>.table</code> </p>
+            <table class="table">
+              <thead>
+
+<table class="table table-bordered">
     <tr>
         <th>Producto</th>
         <th>Codigo</th>
@@ -45,7 +54,9 @@
     </tr>
     {% endfor %}
 </table>
-
+</div>
+</div>
+</div>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{% static "vendors/js/vendor.bundle.base.js" %}"></script>
