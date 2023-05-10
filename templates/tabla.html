@@ -44,6 +44,7 @@
         <th>Unidad</th>
     </tr>
     </thead>
+    <tbody>
     {% for item in query_results %}
     <tr> 
         <td>{{ item.producto }}</td>
@@ -53,6 +54,7 @@
         <td>{{ item.unidad }}</td>
     </tr>
     {% endfor %}
+    </tbody>
 </table>
 </div>
 </div>
