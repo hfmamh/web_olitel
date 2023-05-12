@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,7 +33,7 @@
           <!--  <table class="table">
                 <thead>-->
 
-<table id="order-listing" class="table">
+<table id="order-listingQWE" class="table">
     <thead>
     <tr>
         <th>Producto</th>
@@ -79,5 +78,19 @@
     <!-- Custom js for this page -->
     <script src="{% static "js/shared/data-table copy.js" %}"></script>
     <!-- End custom js for this page -->
+    </script>
+<!-- Custom js for this page -->
+<script>
+	$(document).ready(function() {
+		$('#order-listingQWE').DataTable({
+			"order": [
+				[3, "asc"]
+			],
+			"language": {
+				"url": "lib/Spanish.json"
+			}
+		});
+	});
+</script>
 
 </body>
