@@ -28,12 +28,12 @@
     <div class="col-md-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Default Responsive Table</h4>
+            <h4 class="card-title">Productos</h4>
             <div class="table-responsive">
           <!--  <table class="table">
                 <thead>-->
 
-<table id="order-listingQWE" class="table">
+<table id="order-listingQWE" class="table" style="width:100%">
     <thead>
     <tr>
         <th>Producto</th>
@@ -41,11 +41,14 @@
         <th>Categoria</th>
         <th>Precio</th>
         <th>Unidad</th>
+        <th>Unidad</th>
     </tr>
     </thead>
     <tbody>
     {% for item in query_results %}
-    <tr> 
+    <tr>
+        <td><button class="btn btn-outline-primary">Agregar</button>
+            <button class="btn btn-outline-secondary">Ver</button></td>
         <td>{{ item.producto }}</td>
         <td>{{ item.codigo }}</td>
         <td>{{ item.categoria }}</td>
@@ -75,8 +78,8 @@
     <script src="{% static "js/shared/settings.js" %}"></script>
     <script src="{% static "js/shared/todolist.js" %}"></script>
     <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="{% static "js/shared/data-table copy.js" %}"></script>
+    <!-- Custom js for this page // no se usa -->
+    <script src="{% static "js/shared/data-table.js" %}"></script>
     <!-- End custom js for this page -->
     </script>
 <!-- Custom js for this page -->
@@ -89,7 +92,7 @@
 			"language": {
 				"url": "lib/Spanish.json"
 			}
-		});
+		}).buttons().container().appendTo('#botones-de-tabla');
 	});
 </script>
 
