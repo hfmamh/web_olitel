@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>Web de Cotizacion</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{% static "vendors/mdi/css/materialdesignicons.min.css" %}">
     <link rel="stylesheet" href="{% static "vendors/flag-icon-css/css/flag-icon.min.css" %}">
@@ -15,6 +15,8 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{% static "vendors/datatables.net-bs4/dataTables.bootstrap4.css" %}">
     <link rel="stylesheet" href="{% static "vendors/datatables.net-fixedcolumns-bs4/fixedColumns.bootstrap4.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/jsgrid/jsgrid.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendors/jsgrid/jsgrid-theme.min.css" %}">
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{% static "css/shared/style.css" %}">
@@ -25,7 +27,7 @@
     <link rel="shortcut icon" href="{% static "images/favicon.png" %}" />
 </head>
 <body>
-    <div class="col-md-12 grid-margin">
+<div class="col-md-12 grid-margin">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Productos</h4>
@@ -36,11 +38,11 @@
 <table id="order-listingQWE" class="table" style="width:100%">
     <thead>
     <tr>
+        <th>Accion</th>
         <th>Producto</th>
         <th>Codigo</th>
         <th>Categoria</th>
         <th>Precio</th>
-        <th>Unidad</th>
         <th>Unidad</th>
     </tr>
     </thead>
@@ -61,6 +63,33 @@
 </div>
 </div>
 </div>
+<br>
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Productos</h4>
+      <div class="table-responsive">
+    <!--  <table class="table">
+          <thead>-->
+
+<table id="order-listingQWE" class="table" style="width:100%">
+<thead>
+<tr>
+  <th>Producto</th>
+  <th>Unidad</th>
+  <th>Cantidad</th>
+  <th>Precio Unitario</th>
+  <th>Precio Parcial</th>
+</tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<br>
+<div id="js-grid"></div>
 </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -70,6 +99,7 @@
     <script src="{% static "vendors/datatables.net/jquery.dataTables.js" %}"></script>
     <script src="{% static "vendors/datatables.net-bs4/dataTables.bootstrap4.js" %}"></script>
     <script src="{% static "vendors/datatables.net-fixedcolumns/dataTables.fixedColumns.min.js" %}"></script>
+    <script src="{% static "vendors/jsgrid/jsgrid.min.js" %}"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{% static "js/shared/off-canvas.js" %}"></script>
@@ -80,6 +110,8 @@
     <!-- endinject -->
     <!-- Custom js for this page // no se usa -->
     <script src="{% static "js/shared/data-table.js" %}"></script>
+    <script src="{% static "js/shared/js-grid.js" %}"></script>
+    <script src="{% static "js/shared/db.js" %}"></script>
     <!-- End custom js for this page -->
     </script>
 <!-- Custom js for this page -->
@@ -89,10 +121,8 @@
 			"order": [
 				[3, "asc"]
 			],
-			"language": {
-				"url": "lib/Spanish.json"
-			}
-		}).buttons().container().appendTo('#botones-de-tabla');
+		
+		});
 	});
 </script>
 
