@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#fadein_button").click(function(){
+            $("#demo1").fadeIn();
+          });
+        //jqwuery
+    });
+</script>
+</head>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo1" style="display:none">JavaScript can change HTML content.</p>
+<p id="demo2">JavaScript can change HTML content.</p>
+<p id="demo3">JavaScript can change HTML content.</p>
+<button type="button" id="fadein_button">Click Me!</button>
+<button type="button" id="fadeout_button">Click Me!</button>
+<button type="button" onclick=sumar()>Sumar</button>
+<button type="button" onclick=restar()>Restar</button>
+<button type="button" onclick=duplicar()>Duplicar</button>
+
+
+</body>
+
+<script>
+
+    function funcion(){
+        if(document.getElementById("demo2").innerHTML === "Click Me!"){
+        document.getElementById("demo2").innerHTML = "Hello JavaScript!";
+        }
+        else{
+            document.getElementById("demo2").innerHTML = "Click Me!";
+        }
+    }
+
+</script>
+<script src="myScript.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#fadeout_button").click(function(){
+            $("#demo1").fadeOut();
+          });
+        //jqwuery
+    });
+</script>
+</html>

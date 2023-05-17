@@ -27,7 +27,10 @@
     <link rel="shortcut icon" href="{% static "images/favicon.png" %}" />
 </head>
 <body>
-<div class="col-md-12 grid-margin">
+
+    <div class="content-wrapper">
+
+        <div class="col-12">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Productos</h4>
@@ -49,7 +52,7 @@
     <tbody>
     {% for item in query_results %}
     <tr>
-        <td><button class="btn btn-outline-primary">Agregar</button>
+        <td><button class="btn btn-outline-primary" onclick="agregarow('{{ item.id }}','{{ item.producto }}','{{ item.precio }}','{{ item.unidad }}')">Agregar</button>
             <button class="btn btn-outline-secondary">Ver</button></td>
         <td>{{ item.producto }}</td>
         <td>{{ item.codigo }}</td>
@@ -61,35 +64,24 @@
     </tbody>
 </table>
 </div>
+
 </div>
 </div>
+
 <br>
 <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Productos</h4>
-      <div class="table-responsive">
+      <h4 class="card-title">Canasta</h4>
+
     <!--  <table class="table">
           <thead>-->
 
-<table id="order-listingQWE" class="table" style="width:100%">
-<thead>
-<tr>
-  <th>Producto</th>
-  <th>Unidad</th>
-  <th>Cantidad</th>
-  <th>Precio Unitario</th>
-  <th>Precio Parcial</th>
-</tr>
-</thead>
-<tbody>
-
-</tbody>
-</table>
+<table id="canasta" style="table-layout: fixed; overflow-x: scroll;"></table>
 </div>
 </div>
 </div>
-<br>
-<div id="js-grid"></div>
+</div>
+</div>
 </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -117,13 +109,79 @@
 <!-- Custom js for this page -->
 <script>
 	$(document).ready(function() {
-		$('#order-listingQWE').DataTable({
+		
+    $('#order-listingQWE').DataTable({
 			"order": [
 				[3, "asc"]
 			],
-		
 		});
+
 	});
 </script>
+
+<script>
+  var canasta=[];
+  function agregarow(id,producto,precio,unidad){
+  
+    function contieneProducto(id_prod) {
+      return canasta.some(function(elemento) {
+        return elemento.id.includes(id_prod);
+      });
+    }
+    
+    
+    if(!contieneProducto(id)){
+    canasta.push({ id: id, producto: producto, unidad: unidad, cantidad: 0, precio: precio });
+    $('#canasta').jsGrid();
+    }
+    }
+</script>
+
+
+<script>
+
+$(document).ready(function() {
+var datos = [
+  { producto: "casa", unidad: "un", cantidad: 1, precio: 0.32 },
+  { producto: "barco", unidad: "un", cantidad: 2, precio: 0.23 },
+  { producto: "carro", unidad: "un", cantidad: 4.2, precio: 2.23 }
+];
+
+  $('#canasta').jsGrid({
+    width: "100%",
+    sorting: true,
+    paging: true,
+    autoload: true,
+    noDataContent: "Agregue productos",
+    confirmDeleting: false,
+    filtering: true, //fila de filtering
+    editing: true,
+    inserting: false,
+    data: canasta, // Pasa los datos a través de la opción 'data'
+    fields: [
+    { name: "producto", type: "text", title: "Producto",editing: false  },
+    { name: "unidad", type: "text", title: "Unidad", editing: false, width: 20 },
+    { name: "precio", type: "number", title: "Precio Unitario", editing: false, width: 20 },
+    { name: "cantidad", type: "number", title: "Cantidad", width: 20 },
+    {
+      name: "Total",
+      type: "number",
+      itemTemplate: function(value, item) {
+          // Calculate the total by multiplying quantity and price
+          return item.cantidad * item.precio;
+      },
+      editing: false, width: 20
+    },
+    {
+      type: "control"
+    }
+  ]
+  });
+
+});
+
+
+</script>
+
 
 </body>
