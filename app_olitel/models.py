@@ -1,4 +1,5 @@
 from django.db import models
+import base64
 
 # Create your models here.
 
@@ -21,3 +22,6 @@ class productos(models.Model):
     categoria = models.CharField(max_length=50,null=True)
     precio = models.FloatField(null=True)
     unidad =models.CharField(max_length=10,null=True)
+
+class cotizaciones(models.Model):
+    cotizacion = models.TextField()
