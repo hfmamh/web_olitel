@@ -78,17 +78,18 @@ color:blue;
 <div class="card">
     <div class="card-body">
       <h4 class="card-title">Canasta</h4>
-
+      <button class="btn btn-outline-primary" onclick=enviarDatos()>Guardar cotización</button> 
+      <button class="btn btn-outline-primary" onclick=getDatos()>Cargar cotización</button>
+      <button class="btn btn-outline-primary" onclick=Clean()>Limpiar</button>
     <!--  <table class="table">
           <thead>-->
-
+          <br> <br>
 <div id="canasta"></div>
 </div>
 </div>
 </div>
 </div>
-<button class="btn btn-outline-primary" onclick=enviarDatos()>Guardar cotización</button>
-<button class="btn btn-outline-primary" onclick=getDatos()>Guardar cotización</button>
+
 </div>
 </div>
     <!-- container-scroller -->
@@ -139,10 +140,15 @@ color:blue;
     
     
     if(!contieneProducto(id)){
-    canasta.push({ id: id, producto: producto, unidad: unidad, cantidad: 0, precio: precio });
+    canasta.push({ "id": id, "producto": producto, "unidad": unidad, "cantidad": 0, "precio": Number(precio) });
     $('#canasta').jsGrid();
+    console.log(canasta);
     }
     }
+  function Clean(){
+    canasta=[];
+    $('#canasta').jsGrid({data:canasta});
+  }
 </script>
 
 
@@ -168,7 +174,7 @@ var datos = [
     inserting: false,
     data: canasta, // Pasa los datos a través de la opción 'data'
     fields: [
-    { name: "producto", type: "text", title: "Producto",editing: false, width: 150, css: 'azul' },
+    { name: "producto", type: "text", title: "Producto",editing: false, width: 150},
     { name: "unidad", type: "text", title: "Unidad", editing: false, width: 10 },
     { name: "precio", type: "number", title: "Precio Unitario", editing: false, width: 10, },
     { name: "cantidad", type: "number", title: "Cantidad", width: 10 },
@@ -198,7 +204,15 @@ var datos = [
     url: "guardar_cotizacion",  // Reemplaza esto con la URL correcta de tu endpoint Django
     type: "POST",
     data: {
-      cotizacion: JSON.stringify(canasta)
+      cotizacion: jsonString = JSON.stringify(canasta, (key, value) => {
+        if (key == "id") {
+          return Number(value); // Convertir el valor a número
+        }
+        if (key == "precio") {
+          return Number(value); // Convertir el valor a número
+        }
+        return value; // Devolver el valor sin modificar
+      })
     },
     success: function(response) {
       console.log("Cotización guardada exitosamente");
@@ -210,22 +224,33 @@ var datos = [
   }
 </script>
 <script>
-var filaId = 30; // El identificador de la fila que deseas obtener
+var filaId = 44; // El identificador de la fila que deseas obtener
+
+function reviver(key, value) {
+  // Comprobar si el valor es un número con decimales
+  if (typeof value === 'number' && Number.isInteger(value)) {
+    return parseInt(value);
+  }
+  return value;
+}
+
 function getDatos() {
 $.ajax({
   url: "obtener_cotizacion/" + filaId + "/",  // Reemplaza esto con la URL correcta de tu endpoint Django
   type: "GET",
   success: function(response) {
     // Manipula los datos de respuesta aquí
-    datos=JSON.parse(response);
+    canasta=JSON.parse(response);
     console.log(response);
+    $('#canasta').jsGrid({data:canasta});
+    window.canasta=canasta;
   },
   error: function(xhr) {
     console.error("Error al obtener la cotización");
   }
 });
-console.log(datos);
-$('#canasta').jsGrid();
+console.log(canasta);
+
 }
 </script>
 
