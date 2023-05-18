@@ -88,6 +88,7 @@ color:blue;
 </div>
 </div>
 <button class="btn btn-outline-primary" onclick=enviarDatos()>Guardar cotización</button>
+<button class="btn btn-outline-primary" onclick=getDatos()>Guardar cotización</button>
 </div>
 </div>
     <!-- container-scroller -->
@@ -207,6 +208,25 @@ var datos = [
     }
   });
   }
+</script>
+<script>
+var filaId = 30; // El identificador de la fila que deseas obtener
+function getDatos() {
+$.ajax({
+  url: "obtener_cotizacion/" + filaId + "/",  // Reemplaza esto con la URL correcta de tu endpoint Django
+  type: "GET",
+  success: function(response) {
+    // Manipula los datos de respuesta aquí
+    datos=JSON.parse(response);
+    console.log(response);
+  },
+  error: function(xhr) {
+    console.error("Error al obtener la cotización");
+  }
+});
+console.log(datos);
+$('#canasta').jsGrid();
+}
 </script>
 
 </body>

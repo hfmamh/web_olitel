@@ -79,3 +79,13 @@ def guardar_cotizacion(request):
         return JsonResponse({"success": True})
     else:
         return JsonResponse({"success": False})
+
+from .models import cotizaciones
+
+def obtener_cotizacion(request,cot_id):
+    try:
+        cotizacion = cotizaciones.objects.get(id=cot_id)  # Filtra la cotización por el identificador
+        data = cotizacion.cotizacion
+        return JsonResponse(data, safe=False)
+    except cotizaciones.DoesNotExist:
+        return JsonResponse({"error": "La cotización no existe"}, status=404)

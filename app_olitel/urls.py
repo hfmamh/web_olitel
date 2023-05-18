@@ -14,4 +14,5 @@ urlpatterns=[
   path('formset_vista',views.formset_vista),
   path('vista_tabla',views.vista_tabla),
   path('guardar_cotizacion', views.guardar_cotizacion),
+  path('obtener_cotizacion/<int:cot_id>/', views.obtener_cotizacion),
 ]
