@@ -130,6 +130,7 @@ color:blue;
 
 <script>
   var canasta=[];
+  console.log(canasta);
   function agregarow(id,producto,precio,unidad){
   
     function contieneProducto(id_prod) {
@@ -140,7 +141,7 @@ color:blue;
     
     
     if(!contieneProducto(id)){
-    canasta.push({ "id": id, "producto": producto, "unidad": unidad, "cantidad": 0, "precio": Number(precio) });
+    canasta.push({ "id": Number(id), "producto": producto, "unidad": unidad, "cantidad": 0, "precio": Number(precio) });
     $('#canasta').jsGrid();
     console.log(canasta);
     }
@@ -240,16 +241,22 @@ $.ajax({
   type: "GET",
   success: function(response) {
     // Manipula los datos de respuesta aquí
-    canasta=JSON.parse(response);
+    json_data=JSON.parse(response);
     console.log(response);
+    var canasta = [];
+
+    for(var i in json_data)
+        canasta.push(json_data [i]);
+
     $('#canasta').jsGrid({data:canasta});
     window.canasta=canasta;
+    console.log(canasta);
   },
   error: function(xhr) {
     console.error("Error al obtener la cotización");
   }
 });
-console.log(canasta);
+
 
 }
 </script>
