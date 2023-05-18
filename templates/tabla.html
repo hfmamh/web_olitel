@@ -133,14 +133,15 @@ color:blue;
   console.log(canasta);
   function agregarow(id,producto,precio,unidad){
   
-    function contieneProducto(id_prod) {
-      return canasta.some(function(elemento) {
-        return elemento.id.includes(id_prod);
-      });
+    function isDataExist(json, data) {
+      if (json.hasOwnProperty("id") && json.name === data) {
+        return true;
+      }
+      return false;
     }
     
     
-    if(!contieneProducto(id)){
+    if(!isDataExist(canasta, Number(id)) ){
     canasta.push({ "id": Number(id), "producto": producto, "unidad": unidad, "cantidad": 0, "precio": Number(precio) });
     $('#canasta').jsGrid();
     console.log(canasta);
