@@ -66,3 +66,16 @@ def formset_vista(request):
     formset=app_formset()
     context['formset']= formset
     return render(request, "home_formset.html", context)
+
+
+
+from django.http import JsonResponse
+from .models import cotizaciones
+
+def guardar_cotizacion(request):
+    if request.method == "POST":
+        cotizacion = request.POST.get("cotizacion")
+        nueva_cotizacion = cotizaciones.objects.create(cotizacion=cotizacion)
+        return JsonResponse({"success": True})
+    else:
+        return JsonResponse({"success": False})
