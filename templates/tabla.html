@@ -1,5 +1,9 @@
 {% load static %}
-
+<style>
+  .azul{
+color:blue;
+}
+</style>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -76,7 +80,7 @@
     <!--  <table class="table">
           <thead>-->
 
-<table id="canasta" style="table-layout: fixed; overflow-x: scroll;"></table>
+<div id="canasta"></div>
 </div>
 </div>
 </div>
@@ -149,6 +153,7 @@ var datos = [
 
   $('#canasta').jsGrid({
     width: "100%",
+    height: "100%",
     sorting: true,
     paging: true,
     autoload: true,
@@ -159,10 +164,10 @@ var datos = [
     inserting: false,
     data: canasta, // Pasa los datos a través de la opción 'data'
     fields: [
-    { name: "producto", type: "text", title: "Producto",editing: false  },
-    { name: "unidad", type: "text", title: "Unidad", editing: false, width: 20 },
-    { name: "precio", type: "number", title: "Precio Unitario", editing: false, width: 20 },
-    { name: "cantidad", type: "number", title: "Cantidad", width: 20 },
+    { name: "producto", type: "text", title: "Producto",editing: false, width: 150, css: 'azul' },
+    { name: "unidad", type: "text", title: "Unidad", editing: false, width: 10 },
+    { name: "precio", type: "number", title: "Precio Unitario", editing: false, width: 10, },
+    { name: "cantidad", type: "number", title: "Cantidad", width: 10 },
     {
       name: "Total",
       type: "number",
@@ -170,7 +175,7 @@ var datos = [
           // Calculate the total by multiplying quantity and price
           return item.cantidad * item.precio;
       },
-      editing: false, width: 20
+      editing: false, width: 10
     },
     {
       type: "control"
