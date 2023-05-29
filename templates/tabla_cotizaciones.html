@@ -54,7 +54,7 @@
     {% for item in query_results %}
     <tr>
       <td><button class="btn btn-outline-primary">Ver</button>
-          <button class="btn btn-outline-secondary">Modificar</button></td>
+          <!-- <button class="btn btn-outline-secondary">Modificar</button>--></td>
       <td>{{ item.id }}</td>  
       <td>{{ item.codigo }}</td>
       <td>{{ item.creacion }}</td>
@@ -106,7 +106,7 @@
 		
     $('#tabla_cotizaciones').DataTable({
 			"order": [
-				[3, "asc"]
+				[1, "desc"]
 			],
 		});
 
