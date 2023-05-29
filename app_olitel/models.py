@@ -24,4 +24,8 @@ class productos(models.Model):
     unidad =models.CharField(max_length=10,null=True)
 
 class cotizaciones(models.Model):
+    codigo = models.TextField(null=True)
+    creacion = models.DateTimeField(null=True)
+    descripcion = models.DateTimeField(null=True)
     cotizacion = models.TextField()
+    

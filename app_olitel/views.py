@@ -89,3 +89,10 @@ def obtener_cotizacion(request,cot_id):
         return JsonResponse(data, safe=False)
     except cotizaciones.DoesNotExist:
         return JsonResponse({"error": "La cotización no existe"}, status=404)
+    
+
+def cotizaciones_vista(request):
+    #context ={}
+    query_results = cotizaciones.objects.all()
+    #context['tabla']=query_results
+    return render(request, "tabla_cotizaciones.html", locals())
