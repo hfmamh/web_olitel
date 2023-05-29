@@ -26,6 +26,6 @@ class productos(models.Model):
 class cotizaciones(models.Model):
     codigo = models.TextField(null=True)
     creacion = models.DateTimeField(null=True)
-    descripcion = models.DateTimeField(null=True)
+    descripcion = models.TextField(null=True)
     cotizacion = models.TextField()
     

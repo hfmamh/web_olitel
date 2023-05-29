@@ -78,6 +78,10 @@ color:blue;
 <div class="card">
     <div class="card-body">
       <h4 class="card-title">Canasta</h4>
+      <div>Codigo Cotización</div>
+      <input type="text">
+      <div>Descripción</div>
+      <input type="text">
       <button class="btn btn-outline-primary" onclick=enviarDatos()>Guardar cotización</button> 
       <button class="btn btn-outline-primary" onclick=getDatos()>Cargar cotización</button>
       <button class="btn btn-outline-primary" onclick=Clean()>Limpiar</button>
@@ -214,7 +218,9 @@ var datos = [
           return Number(value); // Convertir el valor a número
         }
         return value; // Devolver el valor sin modificar
-      })
+      }),
+      codigo: $('input[type="text"]:eq(0)').val(),
+      descripcion: $('input[type="text"]:eq(1)').val()
     },
     success: function(response) {
       console.log("Cotización guardada exitosamente");

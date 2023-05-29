@@ -75,7 +75,11 @@ from .models import cotizaciones
 def guardar_cotizacion(request):
     if request.method == "POST":
         cotizacion = request.POST.get("cotizacion")
-        nueva_cotizacion = cotizaciones.objects.create(cotizacion=cotizacion)
+        codigo = request.POST.get("codigo")
+        descripcion = request.POST.get("descripcion")
+        nueva_cotizacion = cotizaciones.objects.create(cotizacion=cotizacion,
+                                                       codigo=codigo,
+                                                       descripcion=descripcion)
         return JsonResponse({"success": True})
     else:
         return JsonResponse({"success": False})
