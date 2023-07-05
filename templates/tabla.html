@@ -205,10 +205,12 @@ var datos = [
 </script>
 
 <script>
+  var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
   function enviarDatos() {
   $.ajax({
     url: "guardar_cotizacion",  // Reemplaza esto con la URL correcta de tu endpoint Django
     type: "POST",
+    headers: { "X-CSRFToken": csrfToken },
     data: {
       cotizacion: jsonString = JSON.stringify(canasta, (key, value) => {
         if (key == "id") {

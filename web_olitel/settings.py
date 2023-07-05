@@ -127,3 +127,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'web_olitel/static'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FORM_RENDERER = "django.forms.renderers.DjangoDivFormRenderer"
+
+import os
+if 'WEBSITE_HOSTNAME' in os.environ: # Running on Azure
+    from .azure import *
